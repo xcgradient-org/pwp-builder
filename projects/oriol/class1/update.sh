@@ -3,7 +3,8 @@ set -euo pipefail
 
 PROJECT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PROJECT_NAME="$(basename "$PROJECT_DIR")"
-ROOT_DIR="$(cd "$PROJECT_DIR/../.." && pwd)"
+PROJECT_KEY="oriol/class1"
+ROOT_DIR="$(cd "$PROJECT_DIR/../../.." && pwd)"
 OUTPUT_DIR="$PROJECT_DIR/output"
 PPTX_FILE="$OUTPUT_DIR/$PROJECT_NAME.pptx"
 PDF_FILE="$OUTPUT_DIR/$PROJECT_NAME.pdf"
@@ -12,7 +13,7 @@ PROFILE_DIR="$OUTPUT_DIR/.lo-profile"
 
 mkdir -p "$OUTPUT_DIR" "$SLIDES_DIR" "$PROFILE_DIR"
 
-node "$ROOT_DIR/build.js" "$PROJECT_NAME"
+node "$ROOT_DIR/build.js" "$PROJECT_KEY"
 
 if ! command -v soffice >/dev/null 2>&1; then
   echo "Missing dependency: soffice"

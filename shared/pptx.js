@@ -8,7 +8,10 @@ const { createHelpers } = require("./helpers");
 const rootDir = path.resolve(__dirname, "..");
 
 function getProjectDir(projectName) {
-  return path.join(rootDir, "projects", projectName);
+  const parts = String(projectName || "")
+    .split("/")
+    .filter(Boolean);
+  return path.join(rootDir, "projects", ...parts);
 }
 
 function loadProjectDeck(projectName) {
@@ -44,6 +47,7 @@ async function buildProjectByName(projectName) {
   const { deck, projectDir } = loadProjectDeck(projectName);
   const outputDir = path.join(projectDir, "output");
   const slidesDir = path.join(outputDir, "slides");
+  const projectId = path.basename(projectDir);
 
   fs.mkdirSync(outputDir, { recursive: true });
   fs.mkdirSync(slidesDir, { recursive: true });
@@ -60,7 +64,7 @@ async function buildProjectByName(projectName) {
 
   await deck.build(pres, api);
 
-  const outFile = path.join(outputDir, `${projectName}.pptx`);
+  const outFile = path.join(outputDir, `${projectId}.pptx`);
   await pres.writeFile({ fileName: outFile });
   return outFile;
 }
