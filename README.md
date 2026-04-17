@@ -2,6 +2,20 @@
 
 A specialized PowerPoint/Presentation generator for XCGradient, powered by `pptxgenjs`. It automates the creation of high-quality decks with brand consistency.
 
+## 🚀 Getting Started
+
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) (v18+ recommended).
+
+### Installation
+
+```bash
+git clone <repo-url>
+cd pwp-builder
+npm install
+```
+
 ## 📂 Project Structure
 
 - `projects/`: The location for deck source files (`data.js` and `deck.js`).
@@ -10,20 +24,17 @@ A specialized PowerPoint/Presentation generator for XCGradient, powered by `pptx
 - `scripts/`: Scaffolding for new projects.
 - `build.js`: The main entry point to generate PDFs/PPTXs.
 
-## 🚀 Getting Started
-
-### Installation
-
-Requires [Node.js](https://nodejs.org/) (v18+ recommended).
-
-```bash
-npm install
-```
+## 🛠️ Usage
 
 ### Build a Presentation
 
 ```bash
 node build.js <project-name>
+```
+
+Example:
+```bash
+node build.js oriol/w17
 ```
 
 ### Scaffold a New Project
@@ -32,13 +43,9 @@ node build.js <project-name>
 node scripts/scaffold-project.js <new-project-name>
 ```
 
-## 🛠️ Usage
+## 👨‍💻 Development
 
-To build the Oriol week 17 presentation, for example:
-
-```bash
-node build.js oriol/w17
-```
+To create new templates, add source files to a new project folder under `projects/` and leverage the shared components in `shared/`.
 
 ## 🐳 Docker & CI/CD
 
