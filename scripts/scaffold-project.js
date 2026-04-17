@@ -4,6 +4,7 @@ const readline = require("readline/promises");
 
 const rootDir = path.resolve(__dirname, "..");
 const projectsDir = path.join(rootDir, "projects");
+const logoPath = path.join(rootDir, "brand-assets", "logo.png");
 
 function normalizeName(rawName) {
   return String(rawName || "")
@@ -118,6 +119,10 @@ function scaffoldFiles(projectKey, projectName) {
 
   fs.mkdirSync(assetsDir, { recursive: true });
   fs.mkdirSync(slidesDir, { recursive: true });
+
+  if (fs.existsSync(logoPath)) {
+    fs.copyFileSync(logoPath, path.join(assetsDir, "logo.png"));
+  }
 
   writeFile(
     path.join(projectDir, "data.js"),

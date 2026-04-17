@@ -1,0 +1,6 @@
+node_modules/
+output/
+projects/**/output/
+.git/
+.dockerignore
+Dockerfile
