@@ -40,6 +40,22 @@ To build the Oriol week 17 presentation, for example:
 node build.js oriol/w17
 ```
 
+## 🐳 Docker & CI/CD
+
+This repository is containerized for consistent rendering.
+
+### Run in Docker
+To build a project without installing Node or LibreOffice:
+
+```bash
+docker build -t pwp-builder .
+docker run --rm -v $(pwd)/projects:/app/projects pwp-builder node build.js <project-name>
+```
+
+### GitHub Actions
+Every push to `main` triggers:
+- **Build & Push:** Automatically builds the production image and pushes it to `ghcr.io/xcgradient-org/pwp-builder:latest`.
+
 ## ⚖️ License
 
 All rights reserved. © 2026 XC Gradient.
