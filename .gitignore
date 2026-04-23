@@ -1,3 +1,5 @@
-output/
-.tmp-lo-profile/
 node_modules/
+.tmp-lo-profile/
+**/output/.lo-profile/
+**/output/slides/
+**/output/*.pptx
